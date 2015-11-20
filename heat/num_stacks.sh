@@ -1,3 +1,4 @@
+
 #! /bin/bash
 
 # Source your AdminRC or OpenRC files if they exist.
@@ -23,8 +24,9 @@ fi
 
 # Run the stack-list and look for the provided tenant.
 STACKLIST=$(heat stack-list -g -f tenant=$TENANT)
-echo "$STACKLIST"
+#echo "$STACKLIST"
 
 STACKS=$(echo "$STACKLIST" | grep -v [[:space:]]id[[:space:]] | grep -v ^+ | grep -v -e '^$' | wc -l)
 
-echo "Total: $STACKS"
+echo "Total number of stacks for tenant: $STACKS"
+
